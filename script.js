@@ -1,5 +1,4 @@
 
-
 window.onload = () => {
     getCountryData();
     getChartData();
@@ -19,12 +18,11 @@ function initMap() {
 
 const getCountryData = () => {
     fetch("https://corona.lmao.ninja/v2/countries")
-    .then ((response)=>{
-        return response.json()
-    }).then((data)=>{
+    .then (response => response.json())
+    .then((data)=>{
         showDataOnMap(data);
         showDataInTable(data);
-    })
+    });
 }
 
 const getChartData = () => {
@@ -35,16 +33,37 @@ const getChartData = () => {
         showDataInGraph(data);
     })
 }
+let countryCases = 0;
+let countryRecovered = 0;
+let countryDeaths = 0;
+
+const checkForNull = (country) => {
+
+    if (country.cases != null) {
+        countryCases = country.cases;
+    };
+
+    if (country.recovered != null) {
+        countryRecovered = country.recovered;
+    };
+
+    if (country.deaths != null) {
+        countryDeaths = country.deaths;
+    };  
+
+}
 
 
 const showDataOnMap = (data) => {
-
     data.map((country)=>{
+        checkForNull(country);
+
         let countryCenter =  {
             lat:country.countryInfo.lat,
             lng:country.countryInfo.long
         }
 
+        
         var countryCircle = new google.maps.Circle({
             strokeColor: '#FF0000',
             strokeOpacity: 0.8,
@@ -53,7 +72,7 @@ const showDataOnMap = (data) => {
             fillOpacity: 0.35,
             map: map,
             center: countryCenter,
-            radius: country.cases
+            radius: countryCases
         });
         
         var html =` 
@@ -64,13 +83,13 @@ const showDataOnMap = (data) => {
                 ${country.country}    
             </div>  
             <div class="info-confirmed">
-                Total: ${country.cases.toLocaleString()}  
+                Total: ${countryCases.toLocaleString()}  
             </div>
             <div class="info-recovered">
-                Recovered: ${country.recovered.toLocaleString()}  
+                Recovered: ${countryRecovered.toLocaleString()}  
             </div>
             <div class="info-deaths">
-                Deaths: ${country.deaths.toLocaleString()}  
+                Deaths: ${countryDeaths.toLocaleString()}  
             </div>                   
             </div>
         `
@@ -96,12 +115,14 @@ const showDataOnMap = (data) => {
 const showDataInTable =  (data) => {
     var html = '';
     data.forEach((country)=> {
+        checkForNull(country);
+
         html +=` 
             <tr>
                 <th scope="row">${country.country}</th>
-                <td>${country.cases.toLocaleString()}</td>
-                <td>${country.recovered.toLocaleString()} </td>
-                <td>${country.deaths.toLocaleString()}</td>
+                <td>${countryCases.toLocaleString()}</td>
+                <td>${countryRecovered.toLocaleString()} </td>
+                <td>${countryDeaths.toLocaleString()}</td>
             </tr>
         `
     })
