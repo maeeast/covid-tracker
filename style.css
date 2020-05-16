@@ -1,23 +1,4 @@
-::-webkit-scrollbar {
-    width: 10px;
-    border-left: 10px #343A40;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ddd;
-    border-radius: 10px;
-    height: 80px;
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #343A40;
-    border-radius: 0 10px 10px 0;
-
-}
-
-
-  body {
+body {
     margin:0;
 }
 
@@ -70,6 +51,24 @@
     max-height: 300px;
     overflow-y: auto;
     background-color: #343A40;
+}
+
+.country-data::-webkit-scrollbar {
+    width: 10px;
+    border-left: 10px #343A40;
+}
+
+.country-data::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+    height: 80px;
+    width: 10px;
+}
+
+.country-data::-webkit-scrollbar-track {
+    background: #343A40;
+    border-radius: 0 10px 10px 0;
+
 }
 
 .data-chart {
