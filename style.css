@@ -69,6 +69,7 @@
     overflow: hidden;
     max-height: 300px;
     overflow-y: auto;
+    background-color: #343A40;
 }
 
 .data-chart {
