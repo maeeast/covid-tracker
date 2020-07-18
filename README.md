@@ -19,6 +19,10 @@ Created for the Clever Programmer Profit With JavaScript Covid Tracker Challenge
 * **🔎 Country Zoom on the map on selection 🔍**
 
     This task involved setting up a semantic-ui dropdown menu and then coordinating that fuctionality with clicks from the Country table list. It took a little bit of digging to get the dropdown to update but I think the final result is well worth it.
+    
+    * **📈 Statistics buttons updating the graph 📈**
+
+    Another task that was a bit of a struggle was getting the line graph to toggle between the active cases, recovered, and death data.
 
 ### Thanks for stopping by! You can see this project live at https://www.jennifermaher.me/covid-tracker
 
