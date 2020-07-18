@@ -1,12 +1,12 @@
 # Covid Tracker
 
 Created for the Clever Programmer Profit With JavaScript Covid Tracker Challenge
-🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+
+🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
 ---
-
-## Features I'm most proud of
-
-#### Step 1
+## Features I'd like to highlight:
 
 * **🎠 News Story Carousel 🎠**
 
