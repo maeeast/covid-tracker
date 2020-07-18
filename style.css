@@ -1,24 +1,101 @@
 body {
-    margin:0;
+    min-width: 375px;
+    background-color: rgba(224, 239, 239, 0.1);
+    font-family: 'Space Mono', monospace;
 }
 
-.nav {
-    background-color:blue; 
-    height: 50px;
+
+.country-data::-webkit-scrollbar {
+    width: 10px;
+    border-left: 10px #f1f1f1;
 }
 
-#map {
+.country-data::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+    height: 60px;
+    width: 10px;
+}
+
+.country-data::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* border-radius: 0 10px 10px 0; */
+
+}
+
+
+
+#map  {
     width: 100%;
-    height: 100%;
+    height: 85%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.sm-text {
+    font-size: .8rem;
+}
+
+.main {
+    min-height: 900px;
+    max-width: 1280px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.map-container {
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 0 8px -4px rgba(0,0,0, 0.5);
+    margin: 0;
+    padding-top: 15px;
+}
+
+.header-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.chart-container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.chart-container .col {
+    background-color: #EFF2F6;
+    border-radius: 12px;
+}
+
+.chart-data {
+    width: 30%;
+    margin-left: 30px;
+    margin-top: 20px;
 }
 
 .map-info {
-    background-color: bisque; 
+    background-color: bisque;
     height: 400px;
 }
 
-.data-info { 
-    background-color: #fefefe;
+.data-info {
+    height: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+.country-data {
+    margin-top: 20px;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.info-flag img {
+    width: 100px;
+    border-radius: 5px;
 }
 
 .info-name {
@@ -34,43 +111,204 @@ body {
 .info-flag {
     height: 80px;
     width: 100%;
-    background-size:cover;
-    border-radius: 10px;
+    background-size: cover;
+    border-radius: 8px;
 }
 
 .info-confirmed, .info-recovered, .info-deaths {
-    font-size:  16px;
+    font-size: 16px;
     margin-top: 5px;
 }
 
+
 .country-data {
-    width: 60%!important;
     margin-top: 20px;
-    border-radius: 10px;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.linear-chart {
+    height: 100%;
+}
+
+.title-container h2 {
+    color: #7DCDCD;
+    margin-bottom: 0;
+    font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+
+.title-container h4 {
+    text-transform: uppercase;
+    color: #CACBCF;
+}
+
+/** Start Stats Card Styling **/
+
+.stats-container .card {
+    min-width: 200px;
+    flex-grow: 0;    
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 8px -4px rgba(0,0,0, 0.5);
     overflow: hidden;
-    max-height: 300px;
-    overflow-y: auto;
-    background-color: #343A40;
+    transition: all 0.2s ease-in-out;
 }
 
-.country-data::-webkit-scrollbar {
-    width: 10px;
-    border-left: 10px #343A40;
+.stats-container .card-body {
+    padding: 1rem .5rem .5rem;
 }
 
-.country-data::-webkit-scrollbar-thumb {
-    background: #ddd;
-    border-radius: 10px;
-    height: 80px;
-    width: 10px;
+.stats-container .card-title {
+    color: #695d5c;
+    font-weight: 700;
+    text-transform: uppercase;;
 }
 
-.country-data::-webkit-scrollbar-track {
-    background: #343A40;
-    border-radius: 0 10px 10px 0;
+.stats-container .card-subtitle {
+    font-weight: 600;
+}
+
+.stats-container .total {
+    font-size: 0.8rem;
+}
+
+.stats-container .tab-selection {
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.stats-container h3 {
+    font-size: 1.3rem;
+}
+
+.stats-container .card:hover {
+    cursor: pointer;
+    transform: translate3d(0, -5px, 0);
+    box-shadow: 0 2rem 5rem 0 rgba(0, 0, 0, .1);
+    background-color: #f5f8fa;
+}
+
+.card-subtitle {
+    font-family: monospace;
+}
+
+.cases:hover .tab-selection, .cases.active .tab-selection {
+    background-color: #1d2c4d;
+}
+
+.recovered:hover .tab-selection, .recovered.active .tab-selection {
+    background-color: #7fd922;
+}
+
+.deaths:hover .tab-selection, .deaths.active .tab-selection {
+    background-color: #cc1034;
+}
+
+.total-number, .card.active i, .card.active h6 {
+    color: #1d2c4d;
+}
+
+.recovered-number, .card.recovered i, .card.recovered h6 {
+    color: #7fd922;
+}
+
+.deaths-number, .card.deaths i, .card.deaths h6 {
+    color: #cc1034;
+}
+
+/** End Stats Card Styling **/
+
+/** Start Side Panel Styling **/
+.side-panel-container {
+    border-bottom-left-radius: 12px;
+    border-top-left-radius: 30px;
+    background-color: white;
+    box-shadow: 0 0 8px -4px rgba(0,0,0, 0.5);
+    padding-top: 15px;
+}
+
+.cases-table-container h4, .map-container h4, .chart-container h4, .news-container h4, .news-container span a {
+    color: #6A5D5D;
+    font-weight: 400;
+}
+
+.country-data {
+    margin: 0 -15px;
+    font-size: .8rem;
+}
+
+
+.country-data td:first-of-type {
+    padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+    border: none;
+    
+}
+
+.country-data .table .table-flag{
+    height: 1.5rem;
+    width: 2.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 8px -4px rgba(0,0,0, 0.5);   
+}
+
+.country-data .table tr:nth-child(even) {
+    background: #f0f0f0
+}
+
+.country-data .table tr:nth-child(odd) {
+    background: #FFF
+}
+/** End Side Panel Styling **/
+
+.news-container {
+    width: 100%;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 0 8px -4px rgba(0,0,0, 0.5);
+    padding: 1rem;
+    margin-top: 1em;
+}
+.carousel-inner {
+    width: 350px;
+    max-width: 350px;
+}
+
+.carousel-inner .carousel-caption {
+    z-index: 100;
+}
+
+
+.news-container #newsCarousel {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+#newsCarousel > a.carousel-control-prev, #newsCarousel > a.carousel-control-next {
+    width: 5%;
+    z-index: 90;
+}
+
+.news-container .carousel-item {
+    border-radius: 12px;
+    box-shadow: 0 0 8px -4px rgba(0,0,0, 0.5);
+}
+
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
 
 }
 
-.data-chart {
-    margin-top: 20px;
+.carousel-caption p {
+    margin: 0 18px;
+    font-size: 1.25rem;
+    font-weight: 300;
 }
