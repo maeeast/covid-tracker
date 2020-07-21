@@ -11,13 +11,11 @@ var infoWindow;
 let coronaGlobalData;
 let mapCircles = [];
 const worldwideSelection = {
-    name: 'Worldwide',
+    name: `<i class='world icon'></i> Worldwide`,
     value: 'ww',
     selected: true
 }
 var casesTypeColors = {
-    // cases: '#1d2c4d',
-    // active: '#9d80fe',
     cases: '#1d2c4d',
     recovered: '#7dd71d',
     deaths: '#CC1034'
@@ -81,19 +79,29 @@ const initDropdown = (searchList) => {
   });
 }
 
+
+
 const setSearchList = (data) => {
     data.sort((a, b) => a.country.localeCompare(b.country))
     let searchList = [];
     searchList.push(worldwideSelection);
     data.forEach ((countryData) => {
+        let iconName;
+        if (countryData.countryInfo.iso2) {
+            iconName = countryData.countryInfo.iso2.toLowerCase();
+        }
+        
+        console.log(iconName);
         searchList.push({
-            name: countryData.country,
-            value: countryData.countryInfo.iso2
+            name: `<i class='${iconName} flag'></i> ${countryData.country}`,
+            value: countryData.countryInfo.iso2,
         })
     })
 
-    initDropdown(searchList);
+     initDropdown(searchList);
 }
+
+
 
 const getCountriesData = () => {
     fetch("https://disease.sh/v3/covid-19/countries")

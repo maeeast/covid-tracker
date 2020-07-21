@@ -1,7 +1,7 @@
-body {
+body, body h4 {
     min-width: 375px;
     background-color: rgba(224, 239, 239, 0.1);
-    font-family: 'Space Mono', monospace;
+    font-family: 'Space Mono', monospace !important;
 }
 
 
@@ -63,6 +63,10 @@ body {
 .chart-container {
     margin-left: 0;
     margin-right: 0;
+}
+
+#myChart {
+    max-height: 200px;
 }
 
 .chart-container .col {
@@ -135,7 +139,7 @@ body {
     color: #7DCDCD;
     margin-bottom: 0;
     font-weight: 900;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     text-transform: uppercase;
 }
 
@@ -194,7 +198,7 @@ body {
 }
 
 .card-subtitle {
-    font-family: monospace;
+    font-family: monospace !important;
 }
 
 .cases:hover .tab-selection, .cases.active .tab-selection {
@@ -284,7 +288,7 @@ body {
 
 
 .news-container #newsCarousel {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     font-size: 12px;
     font-weight: 300;
 }
